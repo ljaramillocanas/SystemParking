@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parqueadero</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Parqueadero</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Placa</th>
+                <th>Hora de Entrada</th>
+                <th>¿Lleva Casco?</th>
+                <th>¿Lavado?</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="entriesTable">
+            <!-- Filas de la tabla con datos dinámicos -->
+        </tbody>
+    </table>
+
+    <h2>Agregar Entrada</h2>
+    <form id="addEntryForm">
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="placa" required>
+        <input type="hidden" id="horaEntrada" name="horaEntrada">
+        <label id="cascoLabel" for="llevaCasco">¿Lleva Casco?</label>
+        <select id="llevaCasco" name="llevaCasco">
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+        </select>
+        <label id="lavadoLabel" for="lavado">¿Lavado?</label>
+        <select id="lavado" name="lavado">
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+        </select>
+        <button type="submit">Agregar</button>
+    </form>
+
+    <div id="cobrarModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Detalle del Registro</h2>
+            <p><strong>Placa:</strong> <span id="placaModal"></span></p>
+            <p><strong>Hora de Entrada:</strong> <span id="horaEntradaModal"></span></p>
+            <p><strong>Hora de Salida:</strong> <span id="horaSalidaModal"></span></p>
+            <p><strong>Lleva Casco:</strong> <span id="llevaCascoModal"></span></p>
+            <p><strong>Lavado:</strong> <span id="lavadoModal"></span></p>
+            <span id="valorAPagarModal"></span>
+            <button onclick="confirmCobro()">Confirmar Cobro</button>
+            <button onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
